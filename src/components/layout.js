@@ -35,7 +35,7 @@ class Layout extends React.Component {
             <img
               alt="Logo Header"
               className="header-logo"
-              src="img/logoTexto.png" 
+              src="img/logoText.png" 
             />
           </Link>
           <Navigation navProps={navProps}/>
