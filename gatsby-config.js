@@ -57,8 +57,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Mónica Marín WebSite`,
+        short_name: `MónicaMarínAPP`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
