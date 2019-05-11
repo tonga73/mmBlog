@@ -1,0 +1,13 @@
+.MainHeader {
+    nav {
+        ul {
+            display: flex;
+            justify-content: space-around;
+            li {
+                a:link {
+                    text-decoration: none !important;
+                }
+            }
+        }
+    }
+}

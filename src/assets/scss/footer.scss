@@ -1,0 +1,16 @@
+.MainFooter {
+    display: flex;
+    background: silver;
+    div {
+        width: 100%;
+        ul {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+        span {
+            display: block;
+            text-align: center;
+        }
+    }
+}

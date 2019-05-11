@@ -1,24 +1,29 @@
 import React from "react"
 import { Link } from "gatsby"
-import "./style.css";
+import * as styles from "../assets/scss/Index.module.scss"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+
+import Navigation from "./navigation"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, children } = this.props;
+    const navProps = {
+        listItems: [
+            { link: "./blog", name: "Blog" },
+            { link: "#Nutrición", name: "Nutrición" },
+            { link: "#Coaching", name: "Coaching" },
+            { link: "#Contacto", name: "Contacto" }
+        ]
+    };
     const rootPath = `${__PATH_PREFIX__}/`
     let header
+    let footer
 
     if (location.pathname === rootPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
+        <nav>
           <Link
             style={{
               boxShadow: `none`,
@@ -27,18 +32,18 @@ class Layout extends React.Component {
             }}
             to={`/`}
           >
-            {title}
+            <img
+              alt="Logo Header"
+              className="header-logo"
+              src="img/logoTexto.png" 
+            />
           </Link>
-        </h1>
+          <Navigation navProps={navProps}/>
+        </nav>
       )
     } else {
       header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
+        <nav>
           <Link
             style={{
               boxShadow: `none`,
@@ -47,28 +52,39 @@ class Layout extends React.Component {
             }}
             to={`/`}
           >
-            {title}
+            <img
+              alt="Logo Header"
+              className="header-logo"
+              src="img/logo.png" 
+            />
           </Link>
-        </h3>
+          <span>
+            {location.pathname}
+          </span>
+          <Navigation navProps={navProps}/>
+        </nav>
       )
     }
+
+    footer = (
+      <div>
+        <Navigation navProps={navProps}/>
+        <span>2019</span>
+      </div>
+    )
+
     return (
       <div
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          display: `none`
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`
         }}
       >
-        <header>{header}</header>
+        <header className={styles.MainHeader}>{header}</header>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <footer className={styles.MainFooter}>{footer}</footer>
       </div>
     )
   }
